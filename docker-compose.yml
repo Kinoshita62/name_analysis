@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   web:
     build: .
@@ -6,3 +7,25 @@ services:
       - "8080:80"
     volumes:
       - .:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=testdb
+      - DB_USER=testuser
+      - DB_PASSWORD=testpass
+
+  db:
+    image: mariadb:10.5
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpass
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  db_data:
