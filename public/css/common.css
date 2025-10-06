@@ -1,0 +1,97 @@
+/* ====== 共通レイアウト ====== */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background: #fafafa;
+}
+
+/* ページ見出し */
+h1, h2 {
+    margin: 20px 0;
+    color: #333;
+}
+
+/* 汎用的なテーブルリセット */
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+}
+
+/* ====== ボタン & リンク 共通デザイン ====== */
+.button-link,
+button,
+input[type="submit"] {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    min-width: 140px;
+    box-sizing: border-box;
+}
+
+/* hover時 */
+.button-link:hover,
+button:hover,
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* ====== 結果表示の色分け ====== */
+.result-max {
+    color: red;
+    font-weight: bold;
+}
+.result-great {
+    color: rgb(255, 128, 0);
+    font-weight: bold;
+}
+.result-good {
+    color: rgb(250, 208, 1);
+    font-weight: bold;
+}
+.result-other {
+    color: black;
+    font-weight: bold;
+}
+
+/* ====== 漢字セルのクリック可能感 ====== */
+.kanji-cell {
+    cursor: pointer;
+    color: blue !important;         /* ← 青文字を強制 */
+    text-decoration: underline;     /* ← リンク風 */
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+/* クリック時のハイライト */
+.kanji-cell:active {
+    background: #eef;
+}
+
+/* ====== テーブルの見た目（白背景固定） ====== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff !important;    /* ← 背景白を強制 */
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px 8px;
+    background: #fff !important;    /* ← セル背景も白固定 */
+}

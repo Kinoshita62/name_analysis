@@ -1,0 +1,142 @@
+
+/* ページ全体を横並びに */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* 左サイドバー */
+.sidebar {
+    width: 300px;
+    padding: 10px;
+    text-align: left;
+
+}
+
+a.sidebar-button, 
+input.sidebar-button {
+    display: block !important;  /* 強制的にブロック化 */
+    margin: 10px auto 40px auto !important; /* 自動的に左右中央 */
+    width: fit-content;
+}
+
+
+/* 中央のメインフォーム */
+.main-form {
+    margin-left: 40px;
+    margin-top: 20px; 
+    padding: 20px;
+    height: 250px;
+    width: 400px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+
+    /* 中身を縦横中央に */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 縦中央 */
+}
+
+.main-form form { 
+  text-align: center;
+}
+
+/* ====== 入力フォームの強調（横並びバージョン） ====== */
+.main-form label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    display: inline-block;   /* 横に並べる */
+    width: 80px;             /* ラベル幅を揃える */
+    text-align: right;       /* ラベルを右寄せに */
+    margin-right: 10px;      /* 入力欄との間に余白 */
+}
+
+.main-form input[type="text"],
+.main-form select {
+    font-size: 16px;
+    padding: 6px 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    width: 200px;            /* 入力欄の幅を揃える */
+    transition: all 0.2s ease;
+    display: inline-block;   /* ラベルと横並び */
+    vertical-align: middle;  /* 上下のズレを防ぐ */
+}
+
+
+/* フォーカス時の強調 */
+.main-form input[type="text"]:focus,
+.main-form select:focus {
+    border-color: #45a049;
+    box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+    outline: none;
+}
+
+
+/* ===== スマホだけ上書き ===== */
+@media screen and (max-width: 768px) {
+  /* 必ず縦並びに */
+  .container {
+    flex-direction: column !important;
+    align-items: stretch;
+    margin: 10px;
+  }
+
+  /* メインフォームを上、白枠を中央に */
+  .main-form {
+    order: 1 !important;
+    width: 92%;
+    max-width: 420px;
+    margin: 0 auto 20px auto !important;
+    padding: 16px;
+    height: auto;
+    box-shadow: none;
+    border-radius: 6px;
+
+    /* 中身の要素も中央揃え（PCと同じ思想） */
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* 横中央 */
+  }
+
+  /* サイドバーを下へ */
+  .sidebar {
+    order: 2 !important;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0 0 20px 0;
+    text-align: center;
+  }
+
+  a.sidebar-button,
+  input.sidebar-button {
+    margin: 10px auto;
+  }
+
+  /* ▼ ラベルと入力欄は“横並びのまま”中央に収まるよう幅調整 */
+  .main-form label {
+    display: inline-block;    /* 横並びを維持 */
+    width: 90px;              /* ラベル固定幅 */
+    text-align: right;
+    margin: 0 10px 12px 0;
+    vertical-align: middle;
+  }
+
+  .main-form input[type="text"],
+  .main-form select {
+    display: inline-block;    
+    vertical-align: middle;
+    box-sizing: border-box;
+
+    /* 画面幅に合わせて、ラベル分を引いた残り幅に */
+    width: calc(100% - 120px);  
+    max-width: 300px;
+  }
+
+}

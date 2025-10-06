@@ -1,0 +1,44 @@
+/* SP用エントリテーブル */
+.sp-entry-table{
+  width: 95%;
+  margin: 12px auto;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  table-layout: fixed; /* 列幅固定で安定 */
+}
+.sp-entry-table th, .sp-entry-table td{
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+/* 1行目（名前・読み方）は従来の比率 */
+.row-basic th{ width: 21%; background:#f7f7f7;}
+.row-basic td{ width: 29%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+/* 判定結果行：タイトルを広げ、値は小さめ */
+.row-score th{
+  width: 52%;              /* ← タイトルを広く */
+  background:#f7f7f7;
+  white-space: nowrap;
+}
+.row-score td{
+  width: 48%;
+  word-break: keep-all;
+}
+
+/* 色分けは既存の .result-max / -great / -good / -other を流用。
+   さらに結果文字だけ少し小さく（任意） */
+.row-score td .result-max,
+.row-score td .result-great,
+.row-score td .result-good,
+.row-score td .result-other{
+  font-weight: 600;
+}
+
+/* 読み方の値だけ文字を少し小さく */
+.sp-entry-table .row-basic td:nth-of-type(2) {
+  font-size: 0.9em;
+}
+

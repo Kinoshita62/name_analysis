@@ -1,0 +1,48 @@
+/* ====== 漢字セルのクリック可能感 ====== */
+.kanji-cell {
+  cursor: pointer;
+  color: blue;                 /* 青文字 */
+  text-decoration: underline;  /* リンクっぽく */
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+.kanji-cell:active {
+  background: #eef;
+}
+
+/* ====== 検索結果テーブルの背景を白に固定 ====== */
+table {
+  background: #fff;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+}
+
+/* ====== モーダル背景 ====== */
+.modal {
+  display: none;                /* 初期は非表示 */
+  position: fixed;              /* 画面に固定 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);  /* 半透明の黒背景 */
+  z-index: 999;                 /* 最前面 */
+}
+
+/* ====== モーダルの中身 ====== */
+.modal-content {
+  background: #fff;
+  width: min(90%, 320px);
+  margin: 20vh auto 0;          /* 上から20%の位置に中央寄せ */
+  padding: 18px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}

@@ -1,0 +1,24 @@
+table {
+    margin: 20px auto;     /* ← 横中央に配置 */
+    border-collapse: collapse;
+    width: 90%;
+    table-layout: fixed;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    text-align: center;
+    word-wrap: break-word; /* 長い文字でも折り返す */
+}
+
+/* 判定結果セルを固定幅にする */
+td.result-max,
+td.result-great,
+td.result-good,
+td.result-other {
+    width: 100px;
+}
